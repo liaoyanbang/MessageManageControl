@@ -1,0 +1,3 @@
+/workspace/MessageManageControl/cmake-build/CMakeFiles/rebuild_cache.dir
+/workspace/MessageManageControl/cmake-build/CMakeFiles/edit_cache.dir
+/workspace/MessageManageControl/cmake-build/CMakeFiles/main.dir

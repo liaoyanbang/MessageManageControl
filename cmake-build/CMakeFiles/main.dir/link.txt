@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/main.dir/src/Mmc_Event.c.o CMakeFiles/main.dir/src/Mmc_Msg_Handle.c.o CMakeFiles/main.dir/src/Moudle_List.c.o CMakeFiles/main.dir/src/Msg_Queue.c.o CMakeFiles/main.dir/src/main.c.o -o main  -lm -lpthread 
