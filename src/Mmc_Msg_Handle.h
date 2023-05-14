@@ -14,10 +14,12 @@ typedef struct mmc_msg_handle_ctrl
 typedef enum msg_moudle
 {
     MOUDLE_MMC = 0,
+    //TODO
     MOUDLE_GUI,
     MOUDLE_TX,
     MOUDLE_XX,
     MOUDLE_KK,
+    //TODO END
     MOUDLE_COUNT,
 } msg_moudle_t;
 

@@ -10,8 +10,6 @@ Event_Moudle_t event_moudle[EVENTS_COUNT];
 
 void Mmc_SubscribeEvent(msg_moudle_t moudle,Events_t event_id)
 {
-    //TODO
-    //模块订阅消息
     event_moudle[event_id].event_id = event_id;
     insert_node(event_moudle[event_id].moudle_list,moudle);
 }
@@ -25,6 +23,7 @@ void Mmc_Event_MoudleInit(void)
     }
 
     //SubscribeEvent
+    //TODO
     Mmc_SubscribeEvent(MOUDLE_GUI,HAL_UPDATE);
     Mmc_SubscribeEvent(MOUDLE_GUI,HAL_WRITE);
     Mmc_SubscribeEvent(MOUDLE_GUI,HAL_WRITE1);
@@ -46,7 +45,7 @@ void Mmc_Event_MoudleInit(void)
     Mmc_SubscribeEvent(MOUDLE_XX,HAL_WRITE2);
     Mmc_SubscribeEvent(MOUDLE_XX,HAL_WRITE3);
 
-    //...
+    //TODO END
 
 }
 

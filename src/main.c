@@ -23,7 +23,7 @@ void *thread_gui(void)
         ret = Sub_Mmc_Msg_Handle_Recv(&message,MOUDLE_GUI);
         if(OK == ret)
         {
-            printf("gui : Message:%d %d %d\n",message->event_id,message->parameter_1,message->parameter_2);
+            printf("gui recevie message:%d %d %d\n",message->event_id,message->parameter_1,message->parameter_2);
             switch (message->event_id) 
             {
                 case HAL_UPDATE:
@@ -50,7 +50,7 @@ void *thread_tx(void)
         ret = Sub_Mmc_Msg_Handle_Recv(&message,MOUDLE_TX);
         if(OK == ret)
         {
-            printf("tx : Message:%d %d %d\n",message->event_id,message->parameter_1,message->parameter_2);
+            printf("tx recevie message:%d %d %d\n",message->event_id,message->parameter_1,message->parameter_2);
 
             switch (message->event_id) 
             {
@@ -68,13 +68,18 @@ void *thread_send(void)
 {
     unsigned int ret;
     //Send Msg
-    sleep(1);
-    ret = Sub_Mmc_Msg_Handle_Send(HAL_UPDATE,2,2,MOUDLE_XX);
-    if(ERROR == ret)
+    sleep(5);
+    for(int i =0;i<100;i++)
     {
-        printf("Send mmc msg fail\n");
-        return NULL;
+        
+        ret = Sub_Mmc_Msg_Handle_Send(HAL_UPDATE,2,2,MOUDLE_XX);
+        if(ERROR == ret)
+        {
+            printf("Send mmc msg fail\n");
+            return NULL;
+        }
     }
+    return NULL;
     sleep(3);
     ret = Sub_Mmc_Msg_Handle_Send(HAL_WRITE1,2,2,MOUDLE_KK);
     if(ERROR == ret)
@@ -84,12 +89,6 @@ void *thread_send(void)
     }
     sleep(3);
     ret = Sub_Mmc_Msg_Handle_Send(HAL_WRITE2,2,2,MOUDLE_KK);
-    if(ERROR == ret)
-    {
-        printf("Send mmc msg fail\n");
-        return NULL;
-    }
-    ret = Sub_Mmc_Msg_Handle_Send(HAL_WRITE3,2,2,MOUDLE_TX);
     if(ERROR == ret)
     {
         printf("Send mmc msg fail\n");
@@ -110,9 +109,8 @@ int main()
         printf("Create mmc msg handle fail\n");
         return ret;
     }
-
-    pthread_t tid1,tid2,tid3;
     //create thread to obverser their queue
+    pthread_t tid1,tid2;
     ret=pthread_create(&tid1,NULL,(void*)thread_gui,NULL);
     if(ret)
     {
@@ -126,6 +124,7 @@ int main()
         return  -1; 
     }
     //create third to send obversation msg
+    pthread_t tid3;
     ret=pthread_create(&tid3,NULL,(void*)thread_send,NULL);
     if(ret)
     {

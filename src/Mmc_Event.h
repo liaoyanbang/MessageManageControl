@@ -5,13 +5,14 @@
 
 typedef enum Events
 {
+    //TODO
     ERROR_EVENT,
     HAL_UPDATE,
     HAL_WRITE,
     HAL_WRITE1,
     HAL_WRITE2,
     HAL_WRITE3,
-    //TO ADD EVENT
+    //TODO END
     EVENTS_COUNT,
 } Events_t;
 
