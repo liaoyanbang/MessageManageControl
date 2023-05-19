@@ -30,7 +30,7 @@ void freeQueue(msg_queue_t* queue)
 unsigned int enqueue(msg_queue_t *queue, message_t *message) {
     if (queue->size == queue->max_size) 
     {
-        printf("Queue is full\n");
+        printf("Queue is full but push\n");
         queue->rear = (queue->rear + 1) % queue->max_size;
         queue->messages[queue->rear] = *message;
         return OK;

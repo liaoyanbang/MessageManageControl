@@ -68,18 +68,6 @@ void *thread_send(void)
 {
     unsigned int ret;
     //Send Msg
-    sleep(5);
-    for(int i =0;i<100;i++)
-    {
-        
-        ret = Sub_Mmc_Msg_Handle_Send(HAL_UPDATE,2,2,MOUDLE_XX);
-        if(ERROR == ret)
-        {
-            printf("Send mmc msg fail\n");
-            return NULL;
-        }
-    }
-    return NULL;
     sleep(3);
     ret = Sub_Mmc_Msg_Handle_Send(HAL_WRITE1,2,2,MOUDLE_KK);
     if(ERROR == ret)
