@@ -10,18 +10,12 @@
 pull and run build.sh<br />result:
 
 ```c
-event_id:1,send msg form moudle 3 to mmc moudle
-tx : Message:1 2 2
-gui : Message:1 2 2
 event_id:3,send msg form moudle 4 to mmc moudle
-tx : Message:3 2 2
-gui : Message:3 2 2
+tx recevie message:3 2 2
+gui recevie message:3 2 2
 event_id:4,send msg form moudle 4 to mmc moudle
-event_id:5,send msg form moudle 2 to mmc moudle
-gui : Message:4 2 2
-gui : Message:5 2 2
-tx : Message:4 2 2
-tx : Message:5 2 2
+gui recevie message:4 2 2
+tx recevie message:4 2 2
 ```
 
 Then you can use it
